@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.fvaldeon.colegio.mvc.Vista">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="782" height="483"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="273cf" binding="tabbedPane1" default-binding="true">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="f6eda" layout-manager="FormLayout">
+            <rowspec value="center:d:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <colspec value="fill:d:noGrow"/>
+            <colspec value="left:4dlu:noGrow"/>
+            <colspec value="fill:d:grow"/>
+            <constraints>
+              <tabbedpane title="Alumnos"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="179dc" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Nombre:"/>
+                </properties>
+              </component>
+              <component id="d06dc" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Apellidos:"/>
+                </properties>
+              </component>
+              <component id="46a1a" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Fecha Nacimiento:"/>
+                </properties>
+              </component>
+              <component id="f4075" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Alumnos:"/>
+                </properties>
+              </component>
+              <component id="2f461" class="javax.swing.JTextField" binding="nombreAlumnoTxt">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="40bbf" class="javax.swing.JTextField" binding="apellidosAlumnoTxt">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="94cd4" class="com.github.lgooddatepicker.components.DatePicker" binding="alumnoDPicker">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties/>
+              </component>
+              <scrollpane id="2ad60">
+                <constraints>
+                  <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="ee9e1" class="javax.swing.JList" binding="listAlumnos">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="23243">
+                <constraints>
+                  <grid row="14" column="2" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="79d94" class="javax.swing.JList" binding="listAsignaturasDisponiblesAlumno">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="3fbfe">
+                <constraints>
+                  <grid row="10" column="2" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="38cf7" class="javax.swing.JList" binding="listAsignaturasAlumno">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="49535" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Matriculado en:"/>
+                </properties>
+              </component>
+              <grid id="9e52b" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="af6c8" class="javax.swing.JButton" binding="nuevoAlumnoBtn">
+                    <constraints/>
+                    <properties>
+                      <actionCommand value="NuevoAlumno"/>
+                      <text value="Nuevo"/>
+                    </properties>
+                  </component>
+                  <component id="d87e2" class="javax.swing.JButton" binding="eliminarAlumnoBtn">
+                    <constraints/>
+                    <properties>
+                      <actionCommand value="EliminarAlumno"/>
+                      <text value="Eliminar"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <component id="16f85" class="javax.swing.JButton" binding="matricularEnAsignaturaBtn">
+                <constraints>
+                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="MatricularAlumno"/>
+                  <text value="Matricular"/>
+                </properties>
+              </component>
+              <component id="20411" class="javax.swing.JButton" binding="desmatricularDeAsignaturaBtn">
+                <constraints>
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="DesmatricularAlumno"/>
+                  <text value="Desmatricular"/>
+                </properties>
+              </component>
+              <component id="c27db" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Asignaturas disponibles:"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="e5820" layout-manager="FormLayout">
+            <rowspec value="center:d:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <colspec value="fill:d:noGrow"/>
+            <colspec value="left:4dlu:noGrow"/>
+            <colspec value="fill:d:grow"/>
+            <constraints>
+              <tabbedpane title="Asignaturas"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="68f54" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Nombre:"/>
+                </properties>
+              </component>
+              <component id="d0846" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Departamento:"/>
+                </properties>
+              </component>
+              <component id="16b50" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Horas:"/>
+                </properties>
+              </component>
+              <component id="4e9f4" class="javax.swing.JTextField" binding="nombreAsignaturaTxt">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="f4c23" class="javax.swing.JComboBox" binding="departamentoCB">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="Ciencias"/>
+                    <item value="Humanidades"/>
+                    <item value="Lenguas Extranjeras"/>
+                    <item value="Tecnologia"/>
+                  </model>
+                </properties>
+              </component>
+              <grid id="8f000" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="af571" class="javax.swing.JSpinner" binding="horasSpinner">
+                    <constraints border-constraint="West"/>
+                    <properties/>
+                  </component>
+                </children>
+              </grid>
+              <component id="4750b" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Profesor:"/>
+                </properties>
+              </component>
+              <component id="c888e" class="javax.swing.JComboBox" binding="profesorCB">
+                <constraints>
+                  <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties/>
+              </component>
+              <scrollpane id="8558c">
+                <constraints>
+                  <grid row="16" column="2" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="5f80c" class="javax.swing.JList" binding="listAlumnosDisponiblesAsignatura">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="16eb6">
+                <constraints>
+                  <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="aa954" class="javax.swing.JList" binding="listAsignaturas">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="7ac35" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Asignaturas:"/>
+                </properties>
+              </component>
+              <scrollpane id="820f9">
+                <constraints>
+                  <grid row="12" column="2" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="ae1b1" class="javax.swing.JList" binding="listAlumnosAsignatura">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="75a56" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Alumnos inscritos:"/>
+                </properties>
+              </component>
+              <component id="413e7" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Alumnos disponibles:"/>
+                </properties>
+              </component>
+              <component id="10308" class="javax.swing.JButton" binding="desmatricularAlumnoBtn">
+                <constraints>
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="DesmatricularAsignatura"/>
+                  <text value="Desmatricular"/>
+                </properties>
+              </component>
+              <component id="b8998" class="javax.swing.JButton" binding="matricularAlumnoBtn">
+                <constraints>
+                  <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="MatricularAsignatura"/>
+                  <text value="Matricular"/>
+                </properties>
+              </component>
+              <grid id="252f1" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="7babf" class="javax.swing.JButton" binding="nuevoAsignaturaBtn">
+                    <constraints/>
+                    <properties>
+                      <actionCommand value="NuevaAsignatura"/>
+                      <text value="Nuevo"/>
+                    </properties>
+                  </component>
+                  <component id="618d3" class="javax.swing.JButton" binding="eliminarAsignaturaBtn">
+                    <constraints/>
+                    <properties>
+                      <actionCommand value="EliminarAsignatura"/>
+                      <text value="Eliminar"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="17fb7" layout-manager="FormLayout">
+            <rowspec value="center:d:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <colspec value="fill:d:noGrow"/>
+            <colspec value="left:4dlu:noGrow"/>
+            <colspec value="fill:d:grow"/>
+            <constraints>
+              <tabbedpane title="Profesores"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="aad6b" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Nombre:"/>
+                </properties>
+              </component>
+              <component id="bd071" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Dni:"/>
+                </properties>
+              </component>
+              <component id="51600" class="javax.swing.JTextField" binding="nombreProfesorTxt">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="53e6b" class="javax.swing.JTextField" binding="dniProfesorTxt">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <scrollpane id="5077d">
+                <constraints>
+                  <grid row="12" column="2" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="95afc" class="javax.swing.JList" binding="listAsignaturasDisponiblesProfesor">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="4fef3">
+                <constraints>
+                  <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="130f3" class="javax.swing.JList" binding="listProfesores">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="6e687" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Profesores:"/>
+                </properties>
+              </component>
+              <scrollpane id="9561d">
+                <constraints>
+                  <grid row="8" column="2" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="6edcc" class="javax.swing.JList" binding="listAsignaturasProfesor">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="57845" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Imparte:"/>
+                </properties>
+              </component>
+              <component id="19d07" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Asignaturas disponibles:"/>
+                </properties>
+              </component>
+              <component id="30677" class="javax.swing.JButton" binding="desvincularAsignaturaProfesorBtn">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <actionCommand value="DesvincularAsignatura"/>
+                  <text value="Desvincular:"/>
+                </properties>
+              </component>
+              <component id="d3fd" class="javax.swing.JButton" binding="asignarAsignaturaProfesorBtn">
+                <constraints>
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <actionCommand value="AsignarAsignatura"/>
+                  <text value="Asignar:"/>
+                </properties>
+              </component>
+              <grid id="8aec5" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="ed776" class="javax.swing.JButton" binding="nuevoProfesorBtn">
+                    <constraints/>
+                    <properties>
+                      <actionCommand value="NuevoProfesor"/>
+                      <text value="Nuevo"/>
+                    </properties>
+                  </component>
+                  <component id="8840a" class="javax.swing.JButton" binding="eliminarProfesorBtn">
+                    <constraints/>
+                    <properties>
+                      <actionCommand value="EliminarProfesor"/>
+                      <text value="Eliminar"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>
