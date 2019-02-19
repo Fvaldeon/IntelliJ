@@ -1,11 +1,13 @@
 package com.fvaldeon.mongoconciertos.mvc;
 
 import com.fvaldeon.mongoconciertos.base.Artista;
+import com.fvaldeon.mongoconciertos.base.Concierto;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -13,15 +15,18 @@ public class Modelo {
 
     static final private String BBDD = "musica";
     static final private String COLECCION_ARTISTAS = "artistas";
+    static final private String COLECCION_CONCIERTOS = "conciertos";
 
     private MongoClient cliente;
     private MongoDatabase bbdd;
-    private MongoCollection coleccion;
+    private MongoCollection colArtistas;
+    private MongoCollection colConciertos;
 
     public void conectar(){
         cliente = new MongoClient();
         bbdd = cliente.getDatabase(BBDD);
-        coleccion = bbdd.getCollection(COLECCION_ARTISTAS);
+        colArtistas = bbdd.getCollection(COLECCION_ARTISTAS);
+        colConciertos = bbdd.getCollection(COLECCION_CONCIERTOS);
     }
 
     public void desconectar(){
@@ -46,17 +51,17 @@ public class Modelo {
         return artista;
     }
 
-    public void insertar(Artista artista){
-        coleccion.insertOne(artistaToDocument(artista));
+    public void insertarArtista(Artista artista){
+        colArtistas.insertOne(artistaToDocument(artista));
     }
 
     public void actualizarArtista(Artista artista){
-        coleccion.replaceOne(new Document("_id", artista.getId()), artistaToDocument(artista));
+        colArtistas.replaceOne(new Document("_id", artista.getId()), artistaToDocument(artista));
     }
 
     public HashSet<Artista> obtenerArtistas(){
         HashSet<Artista> setArtista = new HashSet<>();
-        Iterator<Document> it = coleccion.find().iterator();
+        Iterator<Document> it = colArtistas.find().iterator();
 
         while(it.hasNext()){
             setArtista.add(documentToArtista(it.next()));
@@ -67,6 +72,44 @@ public class Modelo {
     }
 
     public void eliminarArtista(Artista eliminado) {
-        coleccion.deleteOne(artistaToDocument(eliminado));
+        colArtistas.deleteOne(artistaToDocument(eliminado));
     }
+
+
+    public Document conciertoToDocument(Concierto concierto){
+        Document doc = new Document();
+        doc.append("nombre", concierto.getNombre())
+                .append("fecha", concierto.getFecha().toString());
+        return doc;
+    }
+
+    public Concierto documentToConcierto(Document docConcierto){
+        Concierto concierto = new Concierto();
+        concierto.setId(docConcierto.getObjectId("_id"));
+        concierto.setNombre(docConcierto.getString("nombre"));
+        concierto.setFecha(LocalDate.parse(docConcierto.getString("fecha")));
+        return concierto;
+    }
+
+    public void insertarConcierto(Concierto concierto){
+        colConciertos.insertOne(conciertoToDocument(concierto));
+    }
+
+
+
+    public HashSet<Concierto> obtenerConciertos(){
+        HashSet<Concierto> setConcierto = new HashSet<>();
+        Iterator<Document> it = colConciertos.find().iterator();
+
+        while(it.hasNext()){
+            setConcierto.add(documentToConcierto(it.next()));
+        }
+
+        return setConcierto;
+    }
+
+    public void eliminarConcierto(Concierto eliminado) {
+        colConciertos.deleteOne(conciertoToDocument(eliminado));
+    }
+
 }

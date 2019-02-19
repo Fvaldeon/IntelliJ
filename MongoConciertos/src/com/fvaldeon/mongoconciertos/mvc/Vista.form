@@ -95,13 +95,13 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="c8acd" class="javax.swing.JList" binding="list1" default-binding="true">
+                  <component id="c8acd" class="javax.swing.JList" binding="listArtistas">
                     <constraints/>
                     <properties/>
                   </component>
                 </children>
               </scrollpane>
-              <component id="e7a44" class="javax.swing.JButton" binding="eliminarBtn">
+              <component id="e7a44" class="javax.swing.JButton" binding="eliminarArtistaBtn">
                 <constraints>
                   <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-vert="false"/>
@@ -111,7 +111,7 @@
                   <text value="Eliminar"/>
                 </properties>
               </component>
-              <component id="6a96f" class="javax.swing.JButton" binding="altaBtn">
+              <component id="6a96f" class="javax.swing.JButton" binding="altaArtistaBtn">
                 <constraints>
                   <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <forms/>
@@ -121,7 +121,7 @@
                   <text value="Alta"/>
                 </properties>
               </component>
-              <component id="a0139" class="javax.swing.JButton" binding="modificarBtn">
+              <component id="a0139" class="javax.swing.JButton" binding="modificarArtistaBtn">
                 <constraints>
                   <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <forms/>
@@ -134,14 +134,144 @@
             </children>
           </grid>
           <grid id="5ff71" layout-manager="FormLayout">
+            <rowspec value="center:d:noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <colspec value="fill:d:noGrow"/>
+            <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:d:grow"/>
             <constraints>
               <tabbedpane title="Conciertos"/>
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="22f94" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="Nombre:"/>
+                </properties>
+              </component>
+              <component id="b0c85" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <text value="fecha:"/>
+                </properties>
+              </component>
+              <component id="97b48" class="javax.swing.JTextField" binding="nombreConciertoTxt">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <forms defaultalign-horz="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="88ea3" class="com.github.lgooddatepicker.components.DatePicker" binding="conciertosDatePicker">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties/>
+              </component>
+              <scrollpane id="c7d0f">
+                <constraints>
+                  <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="6cdea" class="javax.swing.JList" binding="listArtistasDisponibles">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="b9ff1">
+                <constraints>
+                  <grid row="4" column="2" row-span="5" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="2058c" class="javax.swing.JList" binding="listConciertos">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="29d7a" class="javax.swing.JButton" binding="eliminarConciertoBtn">
+                <constraints>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="EliminarConcierto"/>
+                  <text value="Eliminar"/>
+                </properties>
+              </component>
+              <component id="a5fc9" class="javax.swing.JButton" binding="altaConciertoBtn">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <actionCommand value="AltaConcierto"/>
+                  <text value="Alta"/>
+                </properties>
+              </component>
+              <scrollpane id="f0e">
+                <constraints>
+                  <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="23f6a" class="javax.swing.JList" binding="listArtistasConcierto">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="1478b" class="javax.swing.JButton" binding="anadirArtistaBtn">
+                <constraints>
+                  <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="AnadirArtista"/>
+                  <text value="Añadir"/>
+                </properties>
+              </component>
+              <component id="9dfcc" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <text value="Artistas"/>
+                </properties>
+              </component>
+            </children>
           </grid>
         </children>
       </tabbedpane>

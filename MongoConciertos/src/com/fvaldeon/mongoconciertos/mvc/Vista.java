@@ -1,6 +1,8 @@
 package com.fvaldeon.mongoconciertos.mvc;
 
 import com.fvaldeon.mongoconciertos.base.Artista;
+import com.fvaldeon.mongoconciertos.base.Concierto;
+import com.github.lgooddatepicker.components.DatePicker;
 
 import javax.swing.*;
 
@@ -11,11 +13,21 @@ public class Vista {
     JTextField nombreArtistaTxt;
     JTextField estiloArtistaTxt;
     JTextField cacheArtistaTxt;
-    JList<Artista> list1;
-    JButton eliminarBtn;
-    JButton altaBtn;
-    JButton modificarBtn;
+    JList<Artista> listArtistas;
+    JButton eliminarArtistaBtn;
+    JButton altaArtistaBtn;
+    JButton modificarArtistaBtn;
+    JTextField nombreConciertoTxt;
+    JList<Artista> listArtistasDisponibles;
+    JList<Concierto> listConciertos;
+    JButton eliminarConciertoBtn;
+    JButton altaConciertoBtn;
+    JList<Artista> listArtistasConcierto;
+    JButton anadirArtistaBtn;DatePicker conciertosDatePicker;
     DefaultListModel<Artista> dlmArtista;
+    DefaultListModel<Concierto> dlmConciertos;
+    DefaultListModel<Artista> dlmArtistasConcierto;
+    DefaultListModel<Artista> dlmArtistasDisponibles;
 
     public Vista() {
         frame = new JFrame("Vista");
@@ -25,7 +37,13 @@ public class Vista {
         frame.setVisible(true);
 
         dlmArtista = new DefaultListModel<>();
-        list1.setModel(dlmArtista);
+        listArtistas.setModel(dlmArtista);
+        dlmArtistasConcierto = new DefaultListModel<>();
+        listArtistasConcierto.setModel(dlmArtistasConcierto);
+        dlmArtistasDisponibles = new DefaultListModel<>();
+        listArtistasDisponibles.setModel(dlmArtistasDisponibles);
+        dlmConciertos = new DefaultListModel<>();
+        listConciertos.setModel(dlmConciertos);
     }
 
 
