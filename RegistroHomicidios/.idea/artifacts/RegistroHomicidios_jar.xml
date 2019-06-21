@@ -1,15 +1,15 @@
 <component name="ArtifactManager">
-  <artifact name="RegistroHomicidios:jar">
+  <artifact build-on-make="true" name="RegistroHomicidios:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/RegistroHomicidios_jar</output-path>
     <root id="root">
       <element id="archive" name="RegistroHomicidios.jar">
         <element id="module-output" name="RegistroHomicidios" />
       </element>
       <element id="directory" name="lib">
-        <element id="file-copy" path="$PROJECT_DIR$/libs/hibernate/c3p0-0.9.5.2.jar" />
         <element id="file-copy" path="$PROJECT_DIR$/libs/hibernate/antlr-2.7.7.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/libs/hibernate/c3p0-0.9.5.2.jar" />
         <element id="file-copy" path="$PROJECT_DIR$/libs/hibernate/classmate-1.3.0.jar" />
-        <element id="file-copy" path="$PROJECT_DIR$/libs/jasperLibs/commons-beanutils-1.9.3.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/libs/jasperLibs/commons-beanutils-1.8.3.jar" />
         <element id="file-copy" path="$PROJECT_DIR$/libs/jasperLibs/commons-collections4-4.3.jar" />
         <element id="file-copy" path="$PROJECT_DIR$/libs/jasperLibs/commons-digester-2.1.jar" />
         <element id="file-copy" path="$PROJECT_DIR$/libs/jasperLibs/commons-logging-1.2.jar" />
@@ -36,6 +36,11 @@
         <element id="file-copy" path="$PROJECT_DIR$/libs/jasperLibs/poi-4.1.0.jar" />
         <element id="file-copy" path="$PROJECT_DIR$/libs/jdbc/postgresql-42.2.5.jar" />
       </element>
+      <element id="directory" name="databases">
+        <element id="file-copy" path="$PROJECT_DIR$/registro_homicidas.sql" />
+        <element id="file-copy" path="$PROJECT_DIR$/registro_homicidas_postgresql.sql" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/database-server.conf" />
     </root>
   </artifact>
 </component>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubInformeVictimasdeHomicida" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bf53cd9c-b9b9-4f2c-bfc7-3ca5bfe9436e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MysqlRegistroHomicidios"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="idHomicida" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT registro_homicidas.victimas.nombre,
+	registro_homicidas.victimas.genero_masculino,
+	registro_homicidas.victimas.fecha_defuncion,
+	registro_homicidas.victimas.causa_muerte
+FROM registro_homicidas.victimas
+WHERE registro_homicidas.victimas.id_homicida = $P{idHomicida}]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
+	</field>
+	<field name="genero_masculino" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="genero_masculino"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
+	</field>
+	<field name="fecha_defuncion" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_defuncion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
+	</field>
+	<field name="causa_muerte" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="causa_muerte"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="6e972f87-b673-4ec1-870f-d67f42c34379"/>
+				<text><![CDATA[Nombre Victima]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="e62fde0f-3c92-4bb5-8f2c-3b5aa5181674"/>
+				<text><![CDATA[Fecha Defunción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="2a23deb3-aa18-4ee5-837d-625fd2ce759c"/>
+				<text><![CDATA[Género]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="6fcf61c5-baea-4abf-9143-e010a9d7a6b2"/>
+				<text><![CDATA[Causa muerte]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="872a27d0-d9a7-44e3-b489-3e9214475a85"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMM d, yyyy">
+				<reportElement x="100" y="0" width="100" height="20" uuid="a4f86539-09fe-46d9-8485-ea74c51741a7"/>
+				<textFieldExpression><![CDATA[$F{fecha_defuncion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="d116c7da-f1e2-4ff4-8754-28f64ee32e19"/>
+				<textFieldExpression><![CDATA[($F{genero_masculino} ? "Masculino" : "Femenimo")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="9f227170-bc6c-48d5-bac0-e796f69c9fac"/>
+				<textFieldExpression><![CDATA[$F{causa_muerte}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

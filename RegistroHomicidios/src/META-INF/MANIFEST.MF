@@ -8,7 +8,7 @@ Class-Path: lib/jgoodies-forms-1.8.0.jar lib/jgoodies-common-1.8.1.jar
  .Final.jar lib/hibernate-commons-annotations-5.0.1.Final.jar lib/jbos
  s-transaction-api_1.2_spec-1.0.1.Final.jar lib/poi-4.1.0.jar lib/itex
  t-2.1.7.jar lib/commons-logging-1.2.jar lib/jasperreports-6.8.0.jar l
- ib/commons-digester-2.1.jar lib/commons-beanutils-1.9.3.jar lib/commo
+ ib/commons-digester-2.1.jar lib/commons-beanutils-1.8.3.jar lib/commo
  ns-collections4-4.3.jar lib/postgresql-42.2.5.jar lib/mysql-connector
  -java-5.1.47.jar lib/jcommon-1.0.23.jar lib/jfreechart-1.0.19.jar lib
  /opentest4j-1.0.0.jar lib/junit-jupiter-api-5.0.0.jar

@@ -4,10 +4,8 @@ import com.fvaldeon.registrohomicidios.base.Homicida;
 import com.fvaldeon.registrohomicidios.base.Victima;
 
 import com.fvaldeon.registrohomicidios.util.Util;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,6 +19,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -39,6 +38,9 @@ public class Modelo {
         if(mysql) {
             //Cargo el fichero Hibernate.cfg.xml para conectar con mysql
             configuracion.configure();
+            if(Util.existeFicheroConfiguracionBD()) {
+                Util.modificarConfiguracion(configuracion);
+            }
         }else {
             //Para conectar con postgresql
             configuracion.configure("hibernatePostgre.cfg.xml");
@@ -134,12 +136,12 @@ public class Modelo {
         switch (tipo) {
             case Util.INFORME_VICTIMAS:
                 //Mostrar obtener el reporte sin compilar
-                report = (JasperReport) JRLoader.loadObjectFromFile("reports/VictimasMysql.jasper");
-                //JasperReport report = JasperCompileManager.compileReport("reports/VictimasMysql.jrxml");
+                report = (JasperReport) JRLoader.loadObject(getClass().getResource("/VictimasMysql.jasper"));
+                //report = JasperCompileManager.compileReport("reports/VictimasMysql.jrxml");
                 break;
             case Util.INFORME_HOMICIDAS_COMPLETO:
                 //Mostrar obtener el reporte sin compilar
-                report = (JasperReport) JRLoader.loadObjectFromFile("reports/Completo-homicidas.jasper");
+                report = (JasperReport) JRLoader.loadObject(getClass().getResource("/Completo-homicidas.jasper"));
                 //JasperReport report = JasperCompileManager.compileReport("reports/VictimasMysql.jrxml");
                 break;
         }
@@ -158,9 +160,8 @@ public class Modelo {
         JasperReport report = null;
         switch (tipo) {
             case Util.INFORME_HOMICIDAS_CONCRETO:
-                System.out.println(parametros.get("idHomicidaJava"));
                 //Mostrar obtener el reporte sin compilar
-                report = (JasperReport) JRLoader.loadObjectFromFile("reports/ConcretoHomicida.jasper");
+                report = (JasperReport) JRLoader.loadObject(getClass().getResource("/ConcretoHomicida.jasper"));
                 //JasperReport report = JasperCompileManager.compileReport("reports/VictimasMysql.jrxml");
                 break;
         }
@@ -175,4 +176,17 @@ public class Modelo {
     }
 
 
+    public JasperPrint getJasperPrintSinBD() throws JRException {
+        //Para compilar en fichero
+        //JasperCompileManager.compileReportToFile("reports/VictimasNoMysql.jrxml", "reports/VictimasNoMysql.jasper");
+
+        JasperReport report = (JasperReport) JRLoader.loadObject(getClass().getResource("/VictimasNoBD.jasper"));
+        ArrayList<Victima> lista = new ArrayList<>(getVictimas());
+        JRBeanCollectionDataSource list = new JRBeanCollectionDataSource(lista);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(report, null, list);
+        //Ignorar imagenes solo cuando exporto a XLS (excel)
+        jasperPrint.setProperty("net.sf.jasperreports.export.xls.ignore.graphics", "true");
+
+        return jasperPrint;
+    }
 }

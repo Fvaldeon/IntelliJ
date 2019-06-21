@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ConcretoHomicida" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1b7a513c-aad4-4af9-a268-1cf4bcdcb1cc">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MysqlRegistroHomicidios"/>
+	<parameter name="idHomicidaJava" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM `Homicidas` Where id =  $P{idHomicidaJava}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="apodo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="apodo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="arma" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="arma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="asesino_serie" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="asesino_serie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="annos_carcel" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="annos_carcel"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="ruta_foto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ruta_foto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="66" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="570" height="65" forecolor="#006699" backcolor="#006699" uuid="0a190375-0f61-4343-bd60-3d411f0f9a07"/>
+				<image onErrorType="Blank">
+					<reportElement x="19" y="0" width="50" height="50" uuid="6e2b7695-ef70-46ff-9fa6-202187ef1d61"/>
+					<imageExpression><![CDATA["fvaldeonSplash.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement stretchType="ElementGroupBottom" x="219" y="19" width="341" height="41" uuid="12c32ebb-5010-4072-adb7-a58ecd5f5f9b"/>
+					<box>
+						<pen lineColor="#FCFFFF"/>
+					</box>
+					<textElement>
+						<font size="24"/>
+					</textElement>
+					<text><![CDATA[Informe de Homicida]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="3ae9684b-b7f5-40b6-8756-9f6f9c351b98">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ac1a5cdf-1c9e-4780-8ea1-8872bc3b6cf3"/>
+				</reportElement>
+				<text><![CDATA[Apodo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="30" uuid="96a3090a-3e90-4353-9fe4-2a5bb3cf0013">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="54561527-28d3-4e0d-a3da-4a3a7f21d073"/>
+				</reportElement>
+				<text><![CDATA[Arma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="30" uuid="a9346c20-2353-4932-a92e-3d6562f9630a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e8624d7-913f-4412-bccf-30c56b459040"/>
+				</reportElement>
+				<text><![CDATA[En serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="30" uuid="01d5eb0f-30ed-4ad4-832f-28556fd4396a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="28e103b6-edf2-4587-bb1c-5ad29f18d2dd"/>
+				</reportElement>
+				<text><![CDATA[Años Carcel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="30" uuid="0f98ce42-f9a1-4995-82ed-dfce4b6c9864">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3e98625-d6c5-4e0d-a831-fa7f9da83576"/>
+				</reportElement>
+				<text><![CDATA[Foto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="75" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="8486f370-86cc-4c7a-aef1-95f7afff1988">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ac1a5cdf-1c9e-4780-8ea1-8872bc3b6cf3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{apodo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="42ad3adf-8034-4bbb-b38c-5ee3e305c3bf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="54561527-28d3-4e0d-a3da-4a3a7f21d073"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{arma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="30" uuid="7005ef46-4812-4407-9f16-bf58f49a97b7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e8624d7-913f-4412-bccf-30c56b459040"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[($F{asesino_serie} ? "Si" : "No")]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="430" y="0" width="40" height="40" uuid="883c9c34-0cc4-4852-8fd1-e8baa3098c90"/>
+				<imageExpression><![CDATA["images/"+$F{ruta_foto}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="30" uuid="f2e4cdab-3b3a-4da3-824f-221f944b2c73">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fa6fc88-e9fb-4186-ab5e-93fd4ebba145"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{annos_carcel}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="10" y="50" width="434" height="20" uuid="c947b4f0-6cda-4d00-bcc6-9000e7672959"/>
+				<subreportParameter name="idHomicida">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["SubInformeVictimasdeHomicida.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="0" width="100" height="20" uuid="d178878f-4d9d-4060-84a3-0f151037e4ba"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

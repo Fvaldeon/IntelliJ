@@ -71,6 +71,7 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
         vista.informeCompletoHomicidasBtn.addActionListener(listener);
         vista.informeCompletoVictimasBtn.addActionListener(listener);
         vista.informeConcretoHomicidaBtn.addActionListener(listener);
+        vista.informeVictimasSinBbddBtn.addActionListener(listener);
     }
 
     /**
@@ -257,6 +258,14 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
                 }
                 return;
             }
+            case "InformeVictimasSinBD": {
+                try {
+                    mostrarInforme(modelo.getJasperPrintSinBD(), Util.INFORME_VICTIMAS_SIN_BD);
+                } catch (JRException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            return;
         }
         listarVictimas();
         listarHomicidasComboBox();
@@ -272,7 +281,7 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
         switch(tipo) {
             case Util.INFORME_VICTIMAS:
                 dialog.setTitle("Informe de Victimas");
-                dialog.setSize(800,1000);
+                dialog.setSize(900,1000);
                 break;
             case Util.INFORME_HOMICIDAS_COMPLETO:
                 dialog.setTitle("Informe de Homicidas y Victimas");
@@ -280,7 +289,11 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
                 break;
             case Util.INFORME_HOMICIDAS_CONCRETO:
                 dialog.setTitle("Informe de Homicida");
-                dialog.setSize(800,1000);
+                dialog.setSize(900,1000);
+                break;
+            case Util.INFORME_VICTIMAS_SIN_BD:
+                dialog.setTitle("Informe de Victimas sin BD");
+                dialog.setSize(900,1000);
                 break;
             }
 

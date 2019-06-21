@@ -7,46 +7,24 @@
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
-	<subDataset name="GraficoGenero" uuid="e17a2e72-d807-4437-984b-f641a33e215f">
-		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MysqlRegistroHomicidios"/>
-		<queryString language="SQL">
-			<![CDATA[SELECT COUNT(*), genero_masculino FROM victimas
-GROUP BY genero_masculino]]>
-		</queryString>
-		<field name="COUNT(*)" class="java.lang.Long">
-			<property name="com.jaspersoft.studio.field.label" value="COUNT(*)"/>
-		</field>
-		<field name="genero_masculino" class="java.lang.Boolean">
-			<property name="com.jaspersoft.studio.field.label" value="genero_masculino"/>
-			<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
-		</field>
-		<group name="genero_masculino">
-			<groupExpression><![CDATA[$F{genero_masculino}]]></groupExpression>
-		</group>
-	</subDataset>
 	<queryString language="SQL">
-		<![CDATA[SELECT * FROM Victimas LEFT JOIN Homicidas ON Victimas.id_homicida = homicidas.id]]>
+		<![CDATA[]]>
 	</queryString>
 	<field name="nombre" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
 	</field>
-	<field name="genero_masculino" class="java.lang.Boolean">
-		<property name="com.jaspersoft.studio.field.label" value="genero_masculino"/>
+	<field name="esHombre" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="esHombre"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
 	</field>
-	<field name="fecha_defuncion" class="java.sql.Date">
-		<property name="com.jaspersoft.studio.field.label" value="fecha_defuncion"/>
+	<field name="fechaDefuncion" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="fechaDefuncion"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
 	</field>
-	<field name="causa_muerte" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="causa_muerte"/>
+	<field name="causaMuerte" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="causaMuerte"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="victimas"/>
-	</field>
-	<field name="apodo" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="apodo"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -54,9 +32,9 @@ GROUP BY genero_masculino]]>
 	<title>
 		<band height="73" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="91f5fe7f-a65f-46a3-81ae-30f2d82c45a2"/>
+				<reportElement style="Title" x="0" y="13" width="340" height="33" uuid="91f5fe7f-a65f-46a3-81ae-30f2d82c45a2"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Informe Victimas]]></text>
+				<text><![CDATA[Informe Victimas sin BD]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="SubTitle" x="117" y="46" width="157" height="22" uuid="6931f6fc-c9e8-4cc3-9eec-607a123c87f7"/>
@@ -103,12 +81,6 @@ GROUP BY genero_masculino]]>
 				</reportElement>
 				<text><![CDATA[Causa muerte]]></text>
 			</staticText>
-			<staticText>
-				<reportElement style="Detail" x="444" y="19" width="111" height="15" uuid="97bd30ab-a721-4e22-b38a-2295969edd5d">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bc7cf7ff-f917-4cf5-9487-741d1113242f"/>
-				</reportElement>
-				<text><![CDATA[Apodo homicida]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -129,63 +101,30 @@ GROUP BY genero_masculino]]>
 				<reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="d5a3ff8e-1a66-4993-8fc1-e1bbc7ed2def">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df2a10f1-0d3f-40cf-88a0-b41c0e0e1ab2"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[($F{genero_masculino} ? "Masculino" : "Femenimo")]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{esHombre} ? "Masculino" : "Femenimo")]]></textFieldExpression>
 			</textField>
 			<textField pattern="MMMM d, yyyy">
 				<reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="5d857a3c-971a-4577-9635-ccbf0beb7c9b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c05e2042-ce12-468c-afd7-e31335b35f63"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{fecha_defuncion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{fechaDefuncion}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="3d88dc9f-335b-46c9-b789-9204eb6fe087">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b8b535a4-586c-454a-8b37-b852e0777ec3"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{causa_muerte}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement style="Detail" x="444" y="0" width="111" height="15" uuid="e0c779d0-c212-40e7-8c8a-2b539d820173">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bc7cf7ff-f917-4cf5-9487-741d1113242f"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{apodo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{causaMuerte}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="212" splitType="Stretch">
+		<band height="45" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="30093aa1-3dd7-4eea-9cc9-e183637af8f4"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
-			<pieChart>
-				<chart evaluationTime="Report">
-					<reportElement x="117" y="30" width="293" height="174" uuid="9562532b-df9f-4da3-8502-74625ada0024"/>
-					<chartTitle/>
-					<chartSubtitle/>
-					<chartLegend/>
-				</chart>
-				<pieDataset>
-					<dataset>
-						<datasetRun subDataset="GraficoGenero" uuid="f79be1ff-e172-48f0-ba7a-b9bba6b06ebe">
-							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-						</datasetRun>
-					</dataset>
-					<keyExpression><![CDATA[($F{genero_masculino} ? "Masculino" : "Femenimo")]]></keyExpression>
-					<valueExpression><![CDATA[$F{COUNT(*)}]]></valueExpression>
-					<labelExpression><![CDATA[$F{COUNT(*)}.toString( $F{COUNT(*)} )]]></labelExpression>
-				</pieDataset>
-				<piePlot labelFormat="">
-					<plot/>
-					<itemLabel/>
-				</piePlot>
-			</pieChart>
-			<staticText>
-				<reportElement style="SubTitle" x="117" y="3" width="293" height="22" uuid="2a9b88a6-3cd9-40bf-aecc-b9feb5a031d0"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Relación de Victimas por género]]></text>
-			</staticText>
 		</band>
 	</columnFooter>
 	<pageFooter>

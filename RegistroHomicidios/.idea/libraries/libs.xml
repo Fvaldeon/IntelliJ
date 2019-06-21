@@ -4,10 +4,10 @@
       <root url="file://$PROJECT_DIR$/libs" />
       <root url="file://$PROJECT_DIR$/libs/gui" />
       <root url="file://$PROJECT_DIR$/libs/hibernate" />
-      <root url="file://$PROJECT_DIR$/libs/jasperLibs" />
       <root url="file://$PROJECT_DIR$/libs/jdbc" />
       <root url="file://$PROJECT_DIR$/libs/jfreechart" />
       <root url="file://$PROJECT_DIR$/libs/junit" />
+      <root url="file://$PROJECT_DIR$/libs/jasperLibs" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

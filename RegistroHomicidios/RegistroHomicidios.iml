@@ -20,6 +20,7 @@
       <sourceFolder url="file://$MODULE_DIR$/images" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/reports" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/com/fvaldeon/registrohomicidios/test" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/db_files" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

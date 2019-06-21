@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Completo-homicidas" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c368610e-5bee-4e75-8f1e-ecda64380534">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="47"/>
+	<property name="ireport.y" value="451"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="aG9taWNpZGFzICwxNSwxNSw5Y2YzY2E4ZS1lOWE4LTRiMjctYThhZC03ZTIxNmE5YzZmZjU7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MysqlRegistroHomicidios"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="grafico" uuid="696a3282-b3ae-48da-bef9-26b6d47be111">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MysqlRegistroHomicidios"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT COUNT(victimas.id), homicidas.id, homicidas.apodo
+FROM homicidas LEFT JOIN victimas
+ON homicidas.id = victimas.id_homicida
+GROUP BY homicidas.id]]>
+		</queryString>
+		<field name="COUNT(victimas.id)" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="COUNT(victimas.id)"/>
+		</field>
+		<field name="id" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+		</field>
+		<field name="apodo" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="apodo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+		</field>
+		<group name="id">
+			<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM homicidas]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="apodo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="apodo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="arma" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="arma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="asesino_serie" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="asesino_serie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="annos_carcel" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="annos_carcel"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<field name="ruta_foto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ruta_foto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="homicidas"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="760" height="65" forecolor="#006699" backcolor="#006699" uuid="83f5e806-cc04-4161-87a9-07633f604bc1"/>
+				<staticText>
+					<reportElement style="Title" x="231" y="0" width="529" height="65" uuid="f5cd9ee0-5caa-4e48-8946-c7e84d82a845"/>
+					<textElement textAlignment="Right">
+						<font size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Homicidas y Victimas]]></text>
+				</staticText>
+				<image onErrorType="Blank">
+					<reportElement x="19" y="0" width="50" height="50" uuid="e975866b-1aba-4504-8459-51c33f84dc09"/>
+					<imageExpression><![CDATA["fvaldeonSplash.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement style="SubTitle" x="309" y="65" width="449" height="29" uuid="0dae0af3-dd1d-4b42-b346-386af21f0689"/>
+					<textElement textAlignment="Right">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Victimas de cada homicida]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="14cd6b62-fa36-4d88-a056-602d78cab82d"/>
+				<text><![CDATA[apodo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="0" width="100" height="20" uuid="9d12cfcf-73ed-4397-8a86-06e1756deaa2"/>
+				<text><![CDATA[arma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="100" height="20" uuid="0548cdcb-c88f-4169-93fb-47182529dc7a"/>
+				<text><![CDATA[en serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="100" height="20" uuid="761f8a81-8bcb-473f-b06f-7c26568cd6ce"/>
+				<text><![CDATA[años carcel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="540" y="0" width="100" height="20" uuid="ab777faf-107a-40aa-8331-0a74ba8f7970"/>
+				<text><![CDATA[foto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<image scaleImage="RetainShape" isLazy="true" onErrorType="Blank">
+				<reportElement x="565" y="0" width="45" height="37" uuid="31a3fcb2-4fde-4446-a829-9684351b6817"/>
+				<imageExpression><![CDATA["images/"+$F{ruta_foto}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="78d94ebd-09a3-464b-a4d9-6cecab2ebdd1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bc948071-0529-4ae6-9061-a841d13c821f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{apodo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="100" height="20" uuid="eb4d72d0-ce19-42a4-aa73-e1a23b75245b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0f4fc8ef-22dd-4dab-983c-042d06330f8b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{arma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="20" uuid="415f058e-8860-48af-96f3-63c2ef96b864">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b68cb4d3-fc91-407c-b741-fc59aff8a39b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[($F{asesino_serie} ? "Si" : "No")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="100" height="20" uuid="8e6c16ed-62e6-4a9e-8bf8-df6bfd6c41bb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bbcfa8e0-cc70-4edc-bb75-1b9d2c82b541"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{annos_carcel}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="20" y="20" width="510" height="17" uuid="90be9668-6662-4bfe-933a-b957764c594d"/>
+				<subreportParameter name="idHomicida">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["SubInformeVictimasdeHomicida.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="209" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="0" width="200" height="200" uuid="f5f55855-9557-4f68-b352-9ebce09952fa"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="grafico" uuid="83597076-1432-40ac-9331-493a9ed9234b">
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{apodo}]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[$F{COUNT(victimas.id)}]]></valueExpression>
+						<labelExpression><![CDATA[$F{apodo}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

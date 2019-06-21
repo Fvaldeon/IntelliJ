@@ -434,6 +434,8 @@
             <rowspec value="center:max(d;4px):noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
             <colspec value="fill:d:noGrow"/>
             <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:d:grow"/>
@@ -478,6 +480,16 @@
                 <properties>
                   <actionCommand value="InformeCompletoHomicidas"/>
                   <text value="Informe completo homicidas"/>
+                </properties>
+              </component>
+              <component id="415a8" class="javax.swing.JButton" binding="informeVictimasSinBbddBtn">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <actionCommand value="InformeVictimasSinBD"/>
+                  <text value="Informe victimas sin bbdd"/>
                 </properties>
               </component>
             </children>

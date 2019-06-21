@@ -41,6 +41,7 @@ public class Vista {
     JButton informeConcretoHomicidaBtn;
     JComboBox cBHomicidasInforme;
     JButton informeCompletoHomicidasBtn;
+    JButton informeVictimasSinBbddBtn;
     DefaultListModel<Homicida> dlmHocimidas;
     DefaultListModel<Victima> dlmVictimas;
     DefaultListModel<Victima> dlmVictimasHomicida;
@@ -69,7 +70,7 @@ public class Vista {
         listVictimasHomicida.setModel(dlmVictimasHomicida);
         cbHomicidaVictima.setModel(dcbmHomicidaVictima);
 
-
+        rutafotoLbl.setText(null);
     }
 
     private void iniciarMenu(){

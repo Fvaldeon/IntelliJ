@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VictimasNoBD" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="esHombre" class="java.lang.Boolean"/>
+	<field name="fechaDefuncion" class="java.sql.Date"/>
+	<field name="causaMuerte" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<rectangle>
+				<reportElement x="450" y="0" width="100" height="83" uuid="25698c04-9b83-4108-9356-44c2b638d3be"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Title" x="1" y="0" width="279" height="62" uuid="1a652692-054a-40f3-ade5-68d8da36626d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Informe Victimas No BD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="84" y="60" width="196" height="22" uuid="88d4231e-f014-4b0d-b871-1737ba63a1ae"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Registro Homicidios]]></text>
+			</staticText>
+			<image onErrorType="Blank">
+				<reportElement x="475" y="16" width="50" height="50" uuid="76c812bb-8acc-45f5-8105-8e00fee23401"/>
+				<imageExpression><![CDATA["fvaldeonSplash.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="5" width="109" height="14" uuid="b976857d-a46a-4cad-b91b-01ecfcb1fe05"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="5" width="101" height="14" uuid="78b23108-92d0-4558-a449-94fae47fc0ee"/>
+				<text><![CDATA[Género]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="5" width="100" height="14" uuid="86cd8665-c47e-462d-bd7c-c5d15849c305"/>
+				<text><![CDATA[Fecha Defunción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="5" width="100" height="14" uuid="806987a8-20bc-4c8d-93ce-1e0210528cfe"/>
+				<text><![CDATA[Causa Muerte]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="420" height="14" uuid="a98495d8-3c8d-4fa0-81f5-30c3efc2f766"/>
+				<textField>
+					<reportElement x="10" y="0" width="100" height="14" uuid="5da51f1a-3e82-4e05-89dd-b37d44331b8a"/>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="110" y="0" width="100" height="14" uuid="55f93397-36a2-4333-861f-f59d27e70ac2"/>
+					<textFieldExpression><![CDATA[$F{esHombre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="210" y="0" width="100" height="14" uuid="4e7d2d89-6e05-4810-bf09-60a42053c1e6"/>
+					<textFieldExpression><![CDATA[$F{fechaDefuncion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="310" y="0" width="100" height="14" uuid="67f9470d-4eb9-4ff0-b171-6489cb3eb7b6"/>
+					<textFieldExpression><![CDATA[$F{causaMuerte}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement x="10" y="0" width="440" height="1" uuid="54370a73-1c4f-4c8b-bf00-466061fa29ea"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-11" y="3" width="580" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="0193f9b3-1559-491a-8580-b6988863b6a1"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="d00b105e-494b-418b-8ac9-8b1b4824f4f0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="0616f3fe-0354-456f-8911-ec30ec51a5ae"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
