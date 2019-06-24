@@ -70,6 +70,8 @@ public class Vista {
         listVictimasHomicida.setModel(dlmVictimasHomicida);
         cbHomicidaVictima.setModel(dcbmHomicidaVictima);
 
+        listHomicidas.setCellRenderer(new HomicidaListCellRenderer());
+
         rutafotoLbl.setText(null);
     }
 

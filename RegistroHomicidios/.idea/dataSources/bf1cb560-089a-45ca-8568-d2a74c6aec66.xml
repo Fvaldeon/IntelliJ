@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hibernate.cfg.xml/Hibernate">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="registro_homicidas">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="burgerking"/>
+    <schema id="4" parent="1" name="cdcol"/>
+    <schema id="5" parent="1" name="ciber"/>
+    <schema id="6" parent="1" name="cliente-database"/>
+    <schema id="7" parent="1" name="colegio"/>
+    <schema id="8" parent="1" name="colegio3ev"/>
+    <schema id="9" parent="1" name="conciertos"/>
+    <schema id="10" parent="1" name="edmodo"/>
+    <schema id="11" parent="1" name="ejercicio14_sin_fk"/>
+    <schema id="12" parent="1" name="empresajava"/>
+    <schema id="13" parent="1" name="festival3ev"/>
+    <schema id="14" parent="1" name="gestion"/>
+    <schema id="15" parent="1" name="hibernate_relacion_1an"/>
+    <schema id="16" parent="1" name="hibernate_relacion_nan"/>
+    <schema id="17" parent="1" name="hospital"/>
+    <schema id="18" parent="1" name="information_schema"/>
+    <schema id="19" parent="1" name="libreria"/>
+    <schema id="20" parent="1" name="liga_futbol"/>
+    <schema id="21" parent="1" name="liga_futbol2"/>
+    <schema id="22" parent="1" name="liga_pruebas"/>
+    <schema id="23" parent="1" name="museos"/>
+    <schema id="24" parent="1" name="mysql"/>
+    <schema id="25" parent="1" name="performance_schema"/>
+    <schema id="26" parent="1" name="phpmyadmin"/>
+    <schema id="27" parent="1" name="poker"/>
+    <schema id="28" parent="1" name="proyectos"/>
+    <schema id="29" parent="1" name="registro_homicidas2"/>
+    <schema id="30" parent="1" name="reservas"/>
+    <schema id="31" parent="1" name="restaurante"/>
+    <schema id="32" parent="1" name="tenis"/>
+    <schema id="33" parent="1" name="test"/>
+    <schema id="34" parent="1" name="tienda_online"/>
+    <schema id="35" parent="1" name="tienda_ropa"/>
+    <schema id="36" parent="1" name="vehiculos"/>
+    <schema id="37" parent="1" name="webauth"/>
+    <table id="38" parent="2" name="homicidas"/>
+    <table id="39" parent="2" name="victimas"/>
+    <column id="40" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="38" name="apodo">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="38" name="arma">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="38" name="asesino_serie">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="44" parent="38" name="annos_carcel">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="45" parent="38" name="ruta_foto">
+      <Position>6</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <key id="46" parent="38" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="47" parent="39" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="39" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="39" name="genero_masculino">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="39" name="fecha_defuncion">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="39" name="causa_muerte">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="52" parent="39" name="id_homicida">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="53" parent="39" name="id_homicida">
+      <ColNames>id_homicida</ColNames>
+    </index>
+    <key id="54" parent="39" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="55" parent="39" name="victimas_ibfk_1">
+      <ColNames>id_homicida</ColNames>
+      <RefSchemaName>registro_homicidas</RefSchemaName>
+      <RefTableName>homicidas</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -4,8 +4,8 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" />
-          <unit-entry name="hibernatePostgre.cfg.xml" />
+          <unit-entry name="hibernate.cfg.xml" value="bf1cb560-089a-45ca-8568-d2a74c6aec66" />
+          <unit-entry name="hibernatePostgre.cfg.xml" value="56c12c90-dc08-4deb-9207-7369f27b93b1" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />

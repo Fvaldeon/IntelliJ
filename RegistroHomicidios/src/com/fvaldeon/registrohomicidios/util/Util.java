@@ -21,8 +21,10 @@ public class Util {
     public static final int INFORME_HOMICIDAS_COMPLETO = 2;
     public static final int INFORME_HOMICIDAS_CONCRETO = 3;
     public static final int INFORME_VICTIMAS_SIN_BD = 4;
+    public static final String IMAGES = "images/";
     private static final String BBDD = "registro_homicidas?createDatabaseIfNotExist=true";
     private static final String FICHERO_CONFIGURACION_SERVER = "database-server.conf";
+    public static final String IMAGES_MINIATURAS = "images/miniaturas";
 
     public static void mensajeError(String mensaje){
         JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
@@ -33,12 +35,12 @@ public class Util {
     }
 
     public static boolean existeDirectorioImagenes(){
-        File directorio = new File("images");
+        File directorio = new File(IMAGES_MINIATURAS);
         if(directorio.exists()){
             return true;
         }
 
-        return directorio.mkdir();
+        return directorio.mkdirs();
     }
 
     public static boolean existeFicheroConfiguracionBD(){
@@ -49,27 +51,30 @@ public class Util {
         return false;
     }
 
-    public static void copiarFotoRedimensionada(File inputFile, File destino, int ancho, int alto)
+    public static void copiarFotoRedimensionada(File inputFile, File destino, int anchoFinal, int altoFinal)
             throws IOException {
         // reads input image
         BufferedImage inputImage = ImageIO.read(inputFile);
 
+
         //calcular proporcion correcta
         int altoOriginal = inputImage.getHeight();
         int anchoOriginal = inputImage.getWidth();
+        double proporcionAncho = (double)anchoFinal / (double)anchoOriginal;
+        double proporcionAlto = (double)altoFinal / (double)altoOriginal;
+        double proporcion = Math.min(proporcionAlto, proporcionAncho);
+        int anchoRecomendado = (int)(anchoOriginal * proporcion);
+        int altoRecomendado = (int)(altoOriginal * proporcion);
 
-        if(altoOriginal > anchoOriginal){
-
-        } else {
-
-        }
+        //System.out.println("alto original: " + altoOriginal + " recomendado: " + (int)(altoOriginal * proporcion));
+        //System.out.println("ancho original: " + anchoOriginal + " recomendado: " + (int)(anchoOriginal * proporcion));
 
         // creates output image
-        BufferedImage outputImage = new BufferedImage(ancho, alto, inputImage.getType());
+        BufferedImage outputImage = new BufferedImage(anchoRecomendado , altoRecomendado, inputImage.getType());
 
         // scales the input image to the output image
         Graphics2D g2d = outputImage.createGraphics();
-        g2d.drawImage(inputImage, 0, 0, ancho, alto, null);
+        g2d.drawImage(inputImage, 0, 0, anchoRecomendado, altoRecomendado, null);
         g2d.dispose();
 
         // writes to output file

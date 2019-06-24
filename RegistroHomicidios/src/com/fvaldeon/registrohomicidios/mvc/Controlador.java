@@ -13,7 +13,6 @@ import org.jfree.data.general.DefaultPieDataset;
 
 import javax.swing.*;
 
-import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
@@ -93,13 +92,6 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
     }
 
     /**
-     * Vinculo un listemer con los elementos graficos
-     */
-    private void anadirChangeListeners(ChangeListener listener){
-
-    }
-
-    /**
      * Método que responde a un evento ActionEvent sobre los botones
      * @param e el evento lanzado
      */
@@ -155,7 +147,8 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
             break;
             case "ModificarHomicida":{
                 if(!vista.listHomicidas.isSelectionEmpty()){
-                    if(vista.rutafotoLbl.getText() != null) {
+                    //Si hay alguna ruta de foto indicada en el texto de la etiqueta, y es distinto al que ya estaba guardado en el objeto...
+                    if(vista.rutafotoLbl.getText() != null && !vista.rutafotoLbl.getText().equals(vista.listHomicidas.getSelectedValue().getNombreFoto())) {
                         try {
                             gestionarFoto(new File(vista.rutafotoLbl.getText()));
                         } catch (IOException e1) {
@@ -303,18 +296,21 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
     }
 
     private void gestionarFoto(File origen) throws IOException {
-        File copia = new File("images/" + origen.getName());
+        File copia = new File(Util.IMAGES + origen.getName());
+        File miniatura = new File(Util.IMAGES_MINIATURAS + origen.getName());
         //Util.copiarFoto(origen, copia);
         Util.copiarFotoRedimensionada(origen, copia, 150, 150);
+        Util.copiarFotoRedimensionada(copia, miniatura, 40, 40);
         vista.rutafotoLbl.setText(copia.getName());
-        System.out.println(copia.getName());
         //mostrarFoto(copia);
     }
 
     private void mostrarFoto(File foto) {
         if(foto.exists()) {
             ImageIcon imagen = new ImageIcon(foto.getPath());
-            imagen.setImage(imagen.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
+            if(imagen.getIconHeight() > 150 || imagen.getIconWidth() > 150) {
+                imagen.setImage(imagen.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH));
+            }
             vista.fotolbl.setIcon(imagen);
             vista.fotolbl.setText(null);
             vista.rutafotoLbl.setText(foto.getPath());
@@ -449,7 +445,7 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
                 vista.fotolbl.setText(null);
                 vista.rutafotoLbl.setText(null);
             }else{
-                mostrarFoto(new File("images/" + homicida.getNombreFoto()));
+                mostrarFoto(new File(Util.IMAGES + homicida.getNombreFoto()));
                 vista.rutafotoLbl.setText(homicida.getNombreFoto());
             }
             listarVictimasHomicida();
