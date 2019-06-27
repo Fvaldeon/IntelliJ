@@ -243,6 +243,7 @@ public class Controlador implements ActionListener, ListSelectionListener, Windo
                         parametros = new HashMap();
                         parametros.put("idHomicidaJava", ((Homicida)vista.cBHomicidasInforme.getSelectedItem()).getId());
                         mostrarInforme(modelo.getJasperPrintConParametros(Util.INFORME_HOMICIDAS_CONCRETO, parametros), Util.INFORME_HOMICIDAS_CONCRETO);
+                        vista.cBHomicidasInforme.setSelectedItem(null);
                     }
                 } catch (SQLException e2) {
                     e2.printStackTrace();

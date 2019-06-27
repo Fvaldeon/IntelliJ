@@ -24,7 +24,7 @@ public class Util {
     public static final String IMAGES = "images/";
     private static final String BBDD = "registro_homicidas?createDatabaseIfNotExist=true";
     private static final String FICHERO_CONFIGURACION_SERVER = "database-server.conf";
-    public static final String IMAGES_MINIATURAS = "images/miniaturas";
+    public static final String IMAGES_MINIATURAS = "images/miniaturas/";
 
     public static void mensajeError(String mensaje){
         JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
